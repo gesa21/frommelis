@@ -1,0 +1,191 @@
+{
+  "week_label": "Launch week. First delivery Tuesday 8 September.",
+  "orders_close": "2026-09-05T12:00",
+  "delivery_date": "2026-09-08",
+  "slots_left": null,
+  "slots_total": null,
+  "kids_portion_price": 4,
+  "boxes": [
+    {
+      "name": "Taster Box",
+      "tag": "1 per household",
+      "contents": "Lasagne, the Sunday ragu, 2 kids dishes of your choice and this week's pudding. 5 tubs, worth £26.50 bought as dishes.",
+      "price": 24,
+      "stripe_url": "STRIPE_LINK_HERE"
+    },
+    {
+      "name": "Family Box",
+      "tag": "Your pick of the week",
+      "contents": "Any 4 adult mains, any 3 kids dishes and 1 pizza, chosen by you. Tell us your choices in the order notes.",
+      "price": 45,
+      "stripe_url": "STRIPE_LINK_HERE"
+    }
+  ],
+  "dishes": [
+    {
+      "id": "lasagne",
+      "name": "Beef lasagne",
+      "section": "mains",
+      "description": "Olsi's slow beef ragu layered with pasta and a proper bechamel. 45 minutes in the oven from frozen.",
+      "allergens": ["wheat", "milk", "celery"],
+      "kids_portion": true,
+      "sold_out": false,
+      "price": 7,
+      "photo": ""
+    },
+    {
+      "id": "sunday-ragu",
+      "name": "The Sunday ragu",
+      "section": "mains",
+      "description": "Beef shin cooked slowly until it falls apart. Serve over pasta, mash or polenta.",
+      "allergens": ["celery"],
+      "kids_portion": true,
+      "sold_out": false,
+      "price": 7,
+      "photo": ""
+    },
+    {
+      "id": "chicken-leek-pie",
+      "name": "Chicken and leek pie",
+      "section": "mains",
+      "description": "Chicken thigh and leek in a cream sauce under shortcrust pastry.",
+      "allergens": ["wheat", "milk", "egg", "celery"],
+      "kids_portion": true,
+      "sold_out": false,
+      "price": 7,
+      "photo": ""
+    },
+    {
+      "id": "fish-pie",
+      "name": "Fish pie",
+      "section": "mains",
+      "description": "Smoked haddock and salmon in a parsley sauce under buttery mash.",
+      "allergens": ["fish", "milk", "wheat"],
+      "kids_portion": true,
+      "sold_out": false,
+      "price": 7.5,
+      "photo": ""
+    },
+    {
+      "id": "chicken-curry",
+      "name": "Mild chicken and butternut curry",
+      "section": "mains",
+      "description": "Gently spiced with a coconut base, made with small people in mind. Serve with rice.",
+      "allergens": ["mustard"],
+      "kids_portion": true,
+      "sold_out": false,
+      "price": 7,
+      "photo": ""
+    },
+    {
+      "id": "parmigiana",
+      "name": "Aubergine parmigiana",
+      "section": "mains",
+      "description": "Roasted aubergine, tomato sauce and mozzarella, baked until bubbling. Vegetarian.",
+      "allergens": ["milk"],
+      "kids_portion": true,
+      "sold_out": false,
+      "price": 6.5,
+      "photo": ""
+    },
+    {
+      "id": "five-veg-bolognese",
+      "name": "5-veg pasta Bolognese",
+      "section": "kids",
+      "description": "Beef Bolognese with carrot, courgette, red pepper, onion and celery blended smooth into the sauce.",
+      "allergens": ["wheat", "celery"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 4,
+      "photo": ""
+    },
+    {
+      "id": "hidden-veg-mac",
+      "name": "Mac and cheese",
+      "section": "kids",
+      "description": "Macaroni cheese with butternut squash and cauliflower blended through the sauce. You cannot see either.",
+      "allergens": ["wheat", "milk"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 4,
+      "photo": ""
+    },
+    {
+      "id": "meatballs",
+      "name": "Meatballs in tomato sauce",
+      "section": "kids",
+      "description": "Beef meatballs in a smooth tomato sauce carrying 5 vegetables. None of them visible.",
+      "allergens": ["wheat", "egg", "celery"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 4,
+      "photo": ""
+    },
+    {
+      "id": "margherita",
+      "name": "Margherita",
+      "section": "pizza",
+      "description": "Par-baked base, tomato, mozzarella, basil. 8 minutes in your own oven.",
+      "allergens": ["wheat", "milk"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 7,
+      "photo": ""
+    },
+    {
+      "id": "pizza-second",
+      "name": "Pepperoni",
+      "section": "pizza",
+      "description": "The margherita plus pepperoni. Same par-baked base, 8 minutes in your own oven.",
+      "allergens": ["wheat", "milk"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 8,
+      "photo": ""
+    },
+    {
+      "id": "pudding",
+      "name": "Sticky toffee pudding",
+      "section": "pudding",
+      "description": "Date sponge with toffee sauce in the tub. Serves 2. Warm it through and add cream if you have it.",
+      "allergens": ["wheat", "milk", "egg"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 4.5,
+      "photo": ""
+    },
+    {
+      "id": "smoothie-fruity",
+      "name": "Fruity smoothie pack",
+      "section": "breakfast",
+      "description": "For kids. Frozen banana, strawberry, mango and oats, portioned for 4 smoothies. Add milk and blend.",
+      "allergens": ["oats"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 6,
+      "photo": ""
+    },
+    {
+      "id": "smoothie-green",
+      "name": "Green smoothie pack",
+      "section": "breakfast",
+      "description": "For parents. Frozen spinach, mango, pineapple, lime and ginger, portioned for 4 smoothies. Add water or juice and blend.",
+      "allergens": [],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 6,
+      "photo": ""
+    },
+    {
+      "id": "weekly-bake",
+      "name": "This week's bake: banana and oat loaf",
+      "section": "breakfast",
+      "description": "A whole loaf, baked at the weekend, sliced and frozen. Toast slices straight from the freezer.",
+      "allergens": ["wheat", "oats", "egg", "milk"],
+      "kids_portion": false,
+      "sold_out": false,
+      "price": 8,
+      "photo": ""
+    }
+  ]
+}

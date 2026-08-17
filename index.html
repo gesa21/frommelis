@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meli's, frozen home-cooked meals in Twickenham</title>
+<meta name="description" content="Home-cooked dinners, cooked at the weekend in Twickenham by chef Olsi and frozen within 2 hours of the pan. Order by Saturday noon, in your freezer Sunday evening.">
+<link rel="canonical" href="https://www.frommelis.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Meli's">
+<meta property="og:title" content="Meli's, frozen home-cooked meals in Twickenham">
+<meta property="og:description" content="Cooked at the weekend in Twickenham. Frozen within 2 hours of the pan. In your freezer Sunday evening.">
+<meta property="og:url" content="https://www.frommelis.co.uk/">
+<meta property="og:image" content="https://www.frommelis.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Meli's",
+  "url": "https://www.frommelis.co.uk/",
+  "description": "Frozen home-cooked meals, cooked at the weekend in Twickenham and delivered locally.",
+  "areaServed": "Twickenham and nearby areas of south west London"
+}
+</script>
+<!-- Cloudflare Web Analytics. Remove the comment markers and paste your token to switch it on. -->
+<!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'></script> -->
+</head>
+<body>
+
+<div class="livebar" id="livebar" role="status">
+  <div class="livebar-inner">
+    <span class="livebar-label" id="livebar-label">This week's orders</span>
+    <span class="livebar-count" id="livebar-count"></span>
+    <span class="livebar-delivery" id="livebar-delivery"></span>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="wordmark">Meli's <span class="wordmark-sub">Twickenham</span></p>
+
+    <div class="hero-visual" id="hero-visual" aria-hidden="true">
+      <!-- Real photo drops in here when provided. Save it as photos/hero.webp and it appears on its own. -->
+      <svg class="hero-plate" viewBox="0 0 320 320" role="img" aria-label="">
+        <circle cx="160" cy="190" r="118" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="160" cy="190" r="86" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <ellipse cx="160" cy="196" rx="52" ry="34" fill="currentColor" opacity="0.12"/>
+        <path class="steam steam-1" d="M132 128 C 126 108, 142 100, 136 80 C 132 66, 140 58, 138 44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="steam steam-2" d="M162 122 C 156 102, 172 94, 166 74 C 162 60, 170 52, 168 38" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path class="steam steam-3" d="M192 130 C 186 110, 202 102, 196 82 C 192 68, 200 60, 198 46" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <h1 class="hero-h1" id="hero-h1">For the weeks with more takeaways than you'd like.</h1>
+    <p class="hero-sub">Home-cooked dinners, cooked this weekend in Twickenham by chef Olsi, frozen the same day.</p>
+    <p class="hero-line">Cooked Saturday. Frozen Saturday. Nothing added.</p>
+    <a class="btn btn-order hero-cta" href="#menu">This week's menu</a>
+  </div>
+</header>
+
+<main>
+
+<section class="section section-menu" id="menu">
+  <h2 class="section-h2">This week from Meli's</h2>
+  <p class="week-label" id="week-label"></p>
+  <p class="menu-scarcity">1 chef. 1 weekend. When it's gone, it's gone.</p>
+
+  <div id="menu-groups">
+    <noscript><p>The menu needs JavaScript to load. Message us on WhatsApp for this week's list.</p></noscript>
+  </div>
+
+  <div class="boxes" id="boxes">
+    <h3 class="boxes-h3">How to order</h3>
+    <div class="boxes-grid" id="boxes-grid"></div>
+    <p class="boxes-note">Every dish arrives portioned, labelled and frozen. Boxes are put together from this week's menu above.</p>
+  </div>
+
+  <p class="whatsapp-line">Questions or special requests, <a href="https://wa.me/447414962803?text=Hello%20Meli%27s%2C%20a%20question%20about%20this%20week%27s%20menu.">message us on WhatsApp</a>.</p>
+</section>
+
+<section class="section section-veg" id="hidden-veg">
+  <h2 class="section-h2">Where the vegetables hide</h2>
+  <p class="veg-hint" id="veg-hint">Tap the bowl.</p>
+
+  <div class="veg-stage">
+    <button class="veg-bowl" id="veg-bowl" aria-label="Reveal the 5 hidden vegetables" aria-expanded="false">
+      <svg viewBox="0 0 200 130" aria-hidden="true">
+        <path d="M28 52 Q 100 40 172 52 L 164 86 Q 156 112 100 112 Q 44 112 36 86 Z" fill="currentColor" opacity="0.14"/>
+        <path d="M28 52 Q 100 40 172 52 L 164 86 Q 156 112 100 112 Q 44 112 36 86 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M50 60 Q 100 52 150 60" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+        <path d="M78 30 C 74 22 82 18 80 10 M100 26 C 96 18 104 14 102 6 M122 30 C 118 22 126 18 124 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </button>
+
+    <div class="veg-icons" id="veg-icons" aria-hidden="true">
+      <span class="veg veg-carrot" title="carrot">
+        <svg viewBox="0 0 40 40"><path d="M14 14 L 26 26 L 12 34 Z" fill="currentColor"/><path d="M14 14 C 10 8 16 6 18 2 M14 14 C 8 12 6 16 2 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <span class="veg veg-pepper" title="red pepper">
+        <svg viewBox="0 0 40 40"><path d="M20 12 C 10 12 8 22 12 30 C 15 35 25 35 28 30 C 32 22 30 12 20 12 Z" fill="currentColor"/><path d="M20 12 C 20 8 22 6 24 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <span class="veg veg-courgette" title="courgette">
+        <svg viewBox="0 0 40 40"><rect x="8" y="16" width="26" height="9" rx="4.5" fill="currentColor" transform="rotate(-18 20 20)"/></svg>
+      </span>
+      <span class="veg veg-spinach" title="spinach">
+        <svg viewBox="0 0 40 40"><path d="M20 34 C 8 26 8 12 20 6 C 32 12 32 26 20 34 Z" fill="currentColor"/><path d="M20 32 L 20 10" stroke="var(--cream)" stroke-width="1.5"/></svg>
+      </span>
+      <span class="veg veg-onion" title="onion">
+        <svg viewBox="0 0 40 40"><circle cx="20" cy="22" r="12" fill="currentColor"/><path d="M20 10 C 18 6 22 4 20 2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M20 32 C 20 20 20 18 20 12 M14 30 C 15 22 16 16 18 12 M26 30 C 25 22 24 16 22 12" stroke="var(--cream)" stroke-width="1.2" fill="none" opacity="0.7"/></svg>
+      </span>
+    </div>
+  </div>
+
+  <p class="veg-line" id="veg-line">None of them visible. All of them in there.</p>
+</section>
+
+<section class="section section-week" id="your-week">
+  <h2 class="section-h2">Your week</h2>
+  <p class="week-hint">Tap the evenings that already look busy.</p>
+
+  <div class="week-row">
+    <div class="freezer" id="freezer" aria-hidden="true">
+      <svg viewBox="0 0 60 90"><rect x="6" y="4" width="48" height="82" rx="6" fill="none" stroke="currentColor" stroke-width="3"/><line x1="6" y1="34" x2="54" y2="34" stroke="currentColor" stroke-width="3"/><line x1="14" y1="14" x2="14" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="44" x2="14" y2="58" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path class="freezer-flake" d="M30 56 L 30 72 M22 60 L 38 68 M38 60 L 22 68" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span class="freezer-label">the freezer</span>
+    </div>
+    <div class="week-strip" id="week-strip">
+      <button class="day" data-day="Mon" aria-pressed="false"><span class="day-name">Mon</span><span class="day-slot"></span></button>
+      <button class="day" data-day="Tue" aria-pressed="false"><span class="day-name">Tue</span><span class="day-slot"></span></button>
+      <button class="day" data-day="Wed" aria-pressed="false"><span class="day-name">Wed</span><span class="day-slot"></span></button>
+      <button class="day" data-day="Thu" aria-pressed="false"><span class="day-name">Thu</span><span class="day-slot"></span></button>
+      <button class="day" data-day="Fri" aria-pressed="false"><span class="day-name">Fri</span><span class="day-slot"></span></button>
+      <button class="day" data-day="Sat" aria-pressed="false"><span class="day-name">Sat</span><span class="day-slot"></span></button>
+      <button class="day" data-day="Sun" aria-pressed="false"><span class="day-name">Sun</span><span class="day-slot"></span></button>
+    </div>
+  </div>
+
+  <p class="week-line">Order once. Eat them whenever. The freezer does the planning.</p>
+</section>
+
+<section class="section section-how" id="how">
+  <h2 class="section-h2">How it works</h2>
+  <div class="how-wrap">
+    <svg class="how-line" viewBox="0 0 12 400" preserveAspectRatio="none" aria-hidden="true">
+      <path id="how-path" d="M6 0 L 6 400" fill="none" stroke="currentColor" stroke-width="3"/>
+    </svg>
+    <ol class="how-steps">
+      <li class="how-step"><span class="how-num">1</span><h3>Order by Saturday noon</h3><p>The menu drops on Thursday. Orders close Saturday at 12:00.</p></li>
+      <li class="how-step"><span class="how-num">2</span><h3>Olsi cooks Saturday and Sunday</h3><p>Everything is cooked at the weekend in Twickenham, then portioned, labelled and frozen within 2 hours of the pan.</p></li>
+      <li class="how-step"><span class="how-num">3</span><h3>In your freezer Sunday evening</h3><p>We deliver Sunday evening. Your week is sorted before it starts.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-story" id="story">
+  <h2 class="section-h2">Olsi and Orgesa</h2>
+  <div class="story-wrap">
+    <div class="story-photo" id="story-photo" aria-hidden="true">
+      <!-- Real photo of Olsi drops in here when provided. Save it as photos/olsi.webp and it appears on its own. -->
+      <svg viewBox="0 0 200 200"><circle cx="100" cy="74" r="34" fill="none" stroke="currentColor" stroke-width="3"/><path d="M40 176 C 48 130 76 118 100 118 C 124 118 152 130 160 176" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M84 44 Q 100 30 116 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    </div>
+    <p class="story-text">Meli's is 2 of us. My brother Olsi has been a chef for 10 years. I run everything else. He cooks at the weekend, in Twickenham, and every dish is portioned, labelled and frozen within 2 hours of the pan, because freezing is our only preservative. No factory. No additives. Proper dinners, from 1 chef, for the weeks when cooking is the thing that will not fit.</p>
+    <p class="story-sign">Orgesa</p>
+  </div>
+</section>
+
+<section class="section section-faq" id="faq">
+  <h2 class="section-h2">Questions</h2>
+
+  <details class="faq">
+    <summary>Is frozen actually fresh?</summary>
+    <p>Cooked Saturday. Frozen Saturday. Nothing added. Every dish is frozen within 2 hours of the pan, which holds it at its best. Freezing is our only preservative, so there is nothing in the tub except what Olsi cooked.</p>
+  </details>
+
+  <details class="faq">
+    <summary>Do I have to commit to anything?</summary>
+    <p>No sign-up. No minimum. Order when you want a week off. Order 1 week, skip 3, come back when the diary fills up. Nothing renews.</p>
+  </details>
+
+  <details class="faq">
+    <summary>What if my kids will not eat it?</summary>
+    <p>Every adult main comes as a kids portion, and the 3 dedicated kids dishes carry 5 vegetables blended smooth into sauces that look completely plain. If you are not sure what yours will go for, <a href="https://wa.me/447414962803?text=Hello%20Meli%27s%2C%20which%20dishes%20would%20suit%20my%20kids%3F">message us on WhatsApp</a> and we will help you choose.</p>
+  </details>
+
+  <details class="faq">
+    <summary>Where do you deliver?</summary>
+    <p>Twickenham, St Margarets, Strawberry Hill, Teddington, Whitton, Richmond, North Sheen, Kew, East Sheen, Mortlake, Ham, Petersham, Isleworth, Hampton, Hampton Hill, Hampton Wick and Kingston. Somewhere else nearby, <a href="https://wa.me/447414962803?text=Hello%20Meli%27s%2C%20do%20you%20deliver%20to%20my%20area%3F">ask on WhatsApp</a>.</p>
+  </details>
+
+  <details class="faq">
+    <summary>Allergens and ingredients</summary>
+    <p>Every tub carries a full ingredient list with allergens in bold, a made-on date, and storage and reheating instructions. The <a href="allergens.html">allergens page</a> explains how we cook, freeze and label.</p>
+  </details>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p class="footer-wordmark">Meli's</p>
+  <p>Twickenham, London</p>
+  <p><a href="https://wa.me/447414962803?text=Hello%20Meli%27s.">WhatsApp us</a> · <a href="allergens.html">Allergens and ingredients</a></p>
+  <p class="footer-small">Cooked Saturday. Frozen Saturday. Nothing added.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
