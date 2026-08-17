@@ -4,6 +4,7 @@
   --cream: #F7F1E5;
   --ink: #211D18;
   --frost: #5E8EAB;
+  --frost-text: #38637F;
   --frost-pale: #DEEBF2;
   --order: #97401F;
   --order-dark: #7C3418;
@@ -70,7 +71,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
 
 .livebar-label { font-weight: 600; }
 .livebar-count { font-variant-numeric: tabular-nums; color: var(--ink); }
-.livebar-count strong { color: var(--frost); }
+.livebar-count strong { color: var(--frost-text); }
 .livebar-delivery { margin-left: auto; opacity: 0.85; }
 
 .livebar.closed .livebar-label { color: var(--frost); }
@@ -94,7 +95,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.6;
+  color: #5C564C;
   margin-left: 0.6rem;
 }
 
@@ -147,6 +148,19 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
 
 .hero-cta { margin-top: 1.8rem; }
 
+/* Hero entrance in pure CSS so the headline never waits for a script. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-h1 { animation: settle 0.8s ease-out backwards; }
+  .hero-sub { animation: settle 0.7s ease-out 0.2s backwards; }
+  .hero-line { animation: settle 0.7s ease-out 0.32s backwards; }
+  .hero-cta { animation: settle 0.7s ease-out 0.44s backwards; }
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
 @media (min-width: 860px) {
   .hero { padding-top: 3.5rem; }
   .hero-visual { position: absolute; right: 0; top: 4.5rem; width: 320px; margin: 0; }
@@ -176,7 +190,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--frost);
+  color: var(--frost-text);
 }
 
 .menu-group { margin-bottom: 2.25rem; }
@@ -232,11 +246,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
 .dish-price { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
 
 .dish-price.tbc {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--frost);
+  color: var(--frost-text);
   border: 1px solid var(--frost);
   border-radius: 999px;
   padding: 0.15rem 0.55rem;
@@ -267,7 +281,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--frost);
+  color: var(--frost-text);
   border: 2px solid var(--frost);
   border-radius: 4px;
   padding: 0.2rem 0.5rem;
@@ -296,14 +310,14 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
   align-items: flex-start;
 }
 
-.box-name { font-size: 1.35rem; }
+.box-name { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; }
 
 .box-tag {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--frost);
+  color: var(--frost-text);
 }
 
 .box-contents { font-size: 0.95rem; }
@@ -313,9 +327,9 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
 .box-price .tbc-note {
   display: block;
   font-family: var(--sans);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.78rem;
-  color: var(--frost);
+  color: var(--frost-text);
 }
 
 .box .btn { margin-top: auto; }
@@ -373,6 +387,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
 .veg-line {
   margin-top: 1.2rem;
   font-family: var(--serif);
+  font-weight: 600;
   font-size: 1.25rem;
 }
 
@@ -436,7 +451,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
   border: 1.5px solid var(--frost);
 }
 
-.week-line { margin-top: 1.6rem; font-family: var(--serif); font-size: 1.25rem; max-width: 30ch; }
+.week-line { margin-top: 1.6rem; font-family: var(--serif); font-weight: 600; font-size: 1.25rem; max-width: 30ch; }
 
 .meal-fly {
   position: fixed;
@@ -500,7 +515,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
 
 .story-text { font-size: 1.08rem; }
 
-.story-sign { margin-top: 1rem; font-family: var(--serif); font-style: italic; font-size: 1.3rem; }
+.story-sign { margin-top: 1rem; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.3rem; }
 
 /* FAQ */
 

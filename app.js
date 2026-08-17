@@ -356,11 +356,6 @@
   function initScrollMotion() {
     if (animate === false) return;
 
-    gsap.from('.hero-h1', { y: 26, opacity: 0, duration: 0.9, ease: 'power2.out' });
-    gsap.from('.hero-sub, .hero-line, .hero-cta', {
-      y: 16, opacity: 0, duration: 0.7, stagger: 0.12, delay: 0.25, ease: 'power2.out'
-    });
-
     if (window.ScrollTrigger) {
       document.querySelectorAll('.stamp').forEach(function (stamp) {
         gsap.from(stamp, {
