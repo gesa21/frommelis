@@ -85,7 +85,8 @@
       var m = mins % 60;
       var t = '';
       var hrWord = (hrs === 1 ? ' hr' : ' hrs');
-      if (days > 0) t = days + (days === 1 ? ' day ' : ' days ') + hrs + hrWord;
+      if (days > 0 && hrs > 0) t = days + (days === 1 ? ' day ' : ' days ') + hrs + hrWord;
+      else if (days > 0) t = days + (days === 1 ? ' day' : ' days');
       else if (hrs > 0) t = hrs + hrWord + ' ' + m + ' min';
       else t = m + ' min';
       label.textContent = 'Orders close ' + closeDay + ' ' + closeTime;
