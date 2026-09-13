@@ -19,7 +19,7 @@ FONT_DIR = os.path.join(HERE, ".fonts")
 
 CREAM = (247, 241, 229)
 INK = (33, 29, 24)
-FROST = (63, 111, 142)
+FROST = (56, 99, 127)
 WARM = (151, 64, 31)
 
 FONTS = {
@@ -136,7 +136,7 @@ def make_images():
     d.text((left, y), SPECIFICS[0], font=body, fill=mix(INK, 0.84))
 
     by = y + 60 * S
-    text = "Register your interest"
+    text = "Register my interest"
     tw = button.getlength(text)
     bw, bh = tw + 64 * S, 66 * S
     d.rounded_rectangle((left, by, left + bw, by + bh), radius=bh / 2, fill=WARM)

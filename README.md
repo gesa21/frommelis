@@ -15,7 +15,7 @@ Until step 1 is done, a registration only reaches you if the visitor taps the Wh
 ## Connect the Google Form
 
 1. Go to forms.google.com and start a blank form. Call it "Meli's launch list".
-2. Add 4 questions, all "Short answer", in exactly this order: Full name, Email, Phone, Your area. Turn on "Required" for each one.
+2. Add 4 questions, all "Short answer", in exactly this order: Full name, Email, Phone, Your area. Leave "Required" switched off. The page already insists on all 4 answers, and if a question were required in Google, one wrong entry number would make Google turn away every registration with no sign on the page.
 3. Open Settings, then Responses. Set "Collect email addresses" to "Do not collect" and leave "Limit to 1 response" switched off. Both of those make Google ask people to sign in, which stops the page from sending.
 4. Click "Publish" at the top right, and set responders to anyone with the link.
 5. Click the three dots menu at the top right and choose "Get pre-filled link".
@@ -29,8 +29,8 @@ Until step 1 is done, a registration only reaches you if the visitor taps the Wh
    - line 8: `ENTRY_ID_HERE` becomes the Email number
    - line 9: `ENTRY_ID_HERE` becomes the Phone number
    - line 10: `ENTRY_ID_HERE` becomes the Your area number
-10. Click "Commit changes" and wait 2 minutes.
-11. Test it on your phone with your own details, then look in the form's Responses tab. If your entry is there, it works. If the thank-you screen still shows the WhatsApp button, one of lines 6 to 10 still has a placeholder or a typo. If there is no WhatsApp button but no response either, an entry number is in the wrong order or belongs to a different form.
+10. Click "Commit changes". GitHub can take up to 10 minutes to publish a change, so give it a little while, then open the page in a private browsing tab.
+11. Register with your own details, then look in the form's Responses tab. If your entry is there, with each answer under the right question, it works. If the thank-you screen still shows the WhatsApp button, one of lines 6 to 10 still has a placeholder or a typo, or your phone is showing the old version of the page. If there is no WhatsApp button and nothing arrives in Responses, check that the form is published, that it does not ask people to sign in, and that the form ID came from the pre-filled link. If answers arrive under the wrong questions, the numbers on lines 7 to 10 are in the wrong order. If one answer is blank, that question's number has a typo. The page cannot detect a wrong entry number by itself, which is why this test matters.
 
 ## Going live on www.frommelis.co.uk
 

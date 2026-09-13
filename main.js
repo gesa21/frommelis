@@ -22,7 +22,7 @@ var CONFIG = {
   var reduceMotion = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
 
   function byId(id) { return document.getElementById(id); }
-  function clean(v) { return String(v == null ? "" : v).trim(); }
+  function clean(v) { return String(v == null ? "" : v).replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF]/g, "").trim(); }
 
   /* Google Form settings. Accepts the bare code, or a whole pasted link. */
 
@@ -124,7 +124,7 @@ var CONFIG = {
     phone: function (v) {
       if (v.length === 0) { return "Please enter your phone number."; }
       var digits = v.replace(/\D/g, "");
-      if (digits.length < 10 || digits.length > 15 || /[^\d\s()+.\-]/.test(v)) { return "Please check your phone number."; }
+      if (digits.length < 10 || digits.length > 15) { return "Please check your phone number."; }
       return "";
     },
     area: function (v) {
@@ -224,7 +224,7 @@ var CONFIG = {
   }
 
   function firstName(full) {
-    var word = clean(full).split(/\s+/)[0] || "";
+    var word = (clean(full).split(/\s+/)[0] || "").replace(/[.,;:]+$/, "");
     return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
@@ -417,10 +417,15 @@ var CONFIG = {
       setTimeout(function () { btn.textContent = "Copy all"; }, 2000);
     }
     function manual() {
+      var ok = false;
       raw.focus();
       raw.select();
-      try { document.execCommand("copy"); } catch (e) { /* the text stays selected for a manual copy */ }
-      copied();
+      try { ok = document.execCommand("copy"); } catch (e) { /* the text stays selected for a manual copy */ }
+      if (ok) {
+        copied();
+      } else {
+        btn.textContent = "Text selected below";
+      }
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(raw.value).then(copied, manual);
