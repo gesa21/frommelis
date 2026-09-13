@@ -228,6 +228,18 @@ var CONFIG = {
     return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
+  /* Jump, rather than glide, so the thank-you panel is always in view even if smooth scrolling stalls. */
+  function bringIntoView(el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top >= 0 && rect.top <= window.innerHeight * 0.5) { return; }
+    var y = Math.max(0, (window.pageYOffset || 0) + rect.top - Math.max(16, (window.innerHeight - rect.height) / 2));
+    try {
+      window.scrollTo({ top: y, behavior: "instant" });
+    } catch (e) {
+      window.scrollTo(0, y);
+    }
+  }
+
   function showSuccess(data, sent) {
     firstNameEl.textContent = firstName(data.name);
     fallback.hidden = sent;
@@ -248,10 +260,7 @@ var CONFIG = {
       submitBtn.classList.remove("is-busy");
       submitBtn.removeAttribute("aria-busy");
       try { success.focus({ preventScroll: true }); } catch (e) { success.focus(); }
-      var top = success.getBoundingClientRect().top;
-      if (top < 0 || top > window.innerHeight * 0.5) {
-        success.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-      }
+      bringIntoView(success);
     }
 
     if (reduceMotion) {
