@@ -207,31 +207,43 @@ def make_print(url):
     c.setFillColorRGB(*rgb(CREAM))
     c.rect(0, 0, W, H, stroke=0, fill=1)
 
-    margin = 18 * mm
+    margin = 14 * mm
+    top = H - 12 * mm
+    photo = os.path.join(REPO, "photos", "poster-photo.jpg")
+    pw, ph = 86 * mm, 70 * mm
+    px, py = W - margin - pw, top - ph
+    text_w = W - 2 * margin
+    if os.path.exists(photo):
+        c.saveState()
+        clip = c.beginPath()
+        clip.roundRect(px, py, pw, ph, 4 * mm)
+        c.clipPath(clip, stroke=0, fill=0)
+        c.drawImage(photo, px, py, width=pw, height=ph)
+        c.restoreState()
+        text_w = px - margin - 6 * mm
+        print("photo placed, 86 by 70 mm")
+
     c.setFillColorRGB(*rgb(INK))
     c.setFont("Playfair-600", 34)
-    c.drawString(margin, H - margin - 26, "Meli’s")
-    c.setFont("Inter-500", 9)
-    c.drawRightString(W - margin, H - margin - 20, "T W I C K E N H A M")
+    c.drawString(margin, top - 28, "Meli’s")
+    c.setFont("Playfair-500", 30)
+    y = top - 28 - 56
+    for line in wrap(H1, ImageFont.truetype(font_path("Playfair-500"), 30), text_w):
+        c.drawString(margin, y, line)
+        y -= 36
 
-    c.setFont("Playfair-500", 32)
-    y = H - margin - 26 - 64
-    for line in wrap(H1, ImageFont.truetype(font_path("Playfair-500"), 32), 400):
-        c.drawCentredString(W / 2, y, line)
-        y -= 38
-
-    q = 115 * mm
+    q = 100 * mm
     qx = (W - q) / 2
-    qy = y + 38 - 14 - q
+    qy = min(py, y + 36 - 12) - 8 - q
     c.drawImage(qr_path, qx, qy, width=q, height=q)
-    print("QR image 115 mm, printed code %.1f mm across" % (115 * n / (n + 2 * quiet)))
+    print("QR image 100 mm, printed code %.1f mm across" % (100 * n / (n + 2 * quiet)))
 
     c.setFont("Inter-600", 24)
-    c.drawCentredString(W / 2, qy - 20, "Scan to register your interest")
+    c.drawCentredString(W / 2, qy - 18, "Scan to register your interest")
 
     c.setStrokeColorRGB(*rgb(INK))
     c.setLineWidth(0.8)
-    ry = qy - 44
+    ry = qy - 42
     c.line(W / 2 - 36, ry, W / 2 + 36, ry)
 
     size, lead, gap = 22, 28, 12
@@ -251,7 +263,10 @@ def make_print(url):
             c.drawCentredString(W / 2, sy, t)
             sy -= lead
         sy -= gap
-    print("specifics 22 pt, widest line %.0f of %.0f pt, last baseline %.0f pt" % (widest, W - 2 * margin, sy + lead + gap))
+    last = sy + lead + gap
+    if last < 20 * mm:
+        raise SystemExit("specifics run into the footer")
+    print("specifics 22 pt, last baseline %.0f pt" % last)
 
     c.setFont("Playfair-500", 11)
     c.drawCentredString(W / 2, 10 * mm, "Meli’s. Twickenham.")
