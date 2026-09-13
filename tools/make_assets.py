@@ -220,27 +220,41 @@ def make_print(url):
         c.drawCentredString(W / 2, y, line)
         y -= 38
 
-    q = 150 * mm
+    q = 115 * mm
     qx = (W - q) / 2
     qy = y + 38 - 14 - q
     c.drawImage(qr_path, qx, qy, width=q, height=q)
-    print("QR image 150 mm, printed code %.1f mm across" % (150 * n / (n + 2 * quiet)))
+    print("QR image 115 mm, printed code %.1f mm across" % (115 * n / (n + 2 * quiet)))
 
     c.setFont("Inter-600", 24)
     c.drawCentredString(W / 2, qy - 20, "Scan to register your interest")
 
     c.setStrokeColorRGB(*rgb(INK))
-    c.setLineWidth(0.6)
-    ry = qy - 46
-    c.line(W / 2 - 30, ry, W / 2 + 30, ry)
-    c.setFont("Inter-400", 13)
-    sy = ry - 24
-    for item in SPECIFICS:
-        c.drawCentredString(W / 2, sy, item)
-        sy -= 22
+    c.setLineWidth(0.8)
+    ry = qy - 44
+    c.line(W / 2 - 36, ry, W / 2 + 36, ry)
+
+    size, lead, gap = 22, 28, 12
+    lines = [
+        ["Cooked Sunday morning.", "In the freezer within the hour."],
+        ["An adults’ menu and a children’s menu,", "new choices every week."],
+        ["No cooking. Reheat and eat."],
+        ["Delivered to your door on Sunday evening."],
+    ]
+    c.setFont("Inter-500", size)
+    widest = max(pdfmetrics.stringWidth(t, "Inter-500", size) for group in lines for t in group)
+    if widest > W - 2 * margin:
+        raise SystemExit("specifics too wide for the page")
+    sy = ry - 34
+    for group in lines:
+        for t in group:
+            c.drawCentredString(W / 2, sy, t)
+            sy -= lead
+        sy -= gap
+    print("specifics 22 pt, widest line %.0f of %.0f pt, last baseline %.0f pt" % (widest, W - 2 * margin, sy + lead + gap))
 
     c.setFont("Playfair-500", 11)
-    c.drawCentredString(W / 2, 12 * mm, "Meli’s. Twickenham.")
+    c.drawCentredString(W / 2, 10 * mm, "Meli’s. Twickenham.")
 
     c.showPage()
     c.save()
