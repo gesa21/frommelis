@@ -1,55 +1,55 @@
-# Meli's website
+# Meli's launch page
 
-The live site for Meli's, frozen home-cooked meals in Twickenham. Everything on the page renders from one file, `menu.json`. Edit that file and the site updates itself.
+One page with one job: collect names for the launch list. No prices, no ordering, no payment. It is plain HTML, one stylesheet (`styles.css`) and one script (`main.js`). There is nothing to build or install.
 
-## The Thursday routine
+Live address: https://gesa21.github.io/frommelis/
 
-1. Go to github.com/gesa21/frommelis, click `menu.json`, then click the pencil icon to edit.
-2. Change `week_label` to this week, for example "Menu for w/c 14 September".
-3. Change `orders_close` to this Saturday at noon, written like `2026-09-12T12:00`. The countdown reads it as UK time.
-4. Change `delivery_date` to this Sunday, written like `2026-09-13`.
-5. Swap the 4 rotating mains: change their `name`, `description` and `allergens`. Leave `lasagne` and `sunday-ragu` alone, they are permanent.
-6. Update the second pizza, the pudding and the bake the same way.
-7. Check every dish has `"sold_out": false` to start the week. Flip one to `true` during the week when a dish runs out.
-8. If a box price or its contents change, edit it under `boxes`.
-9. Scroll down and click "Commit changes".
-10. Wait 2 minutes, then check the site on your phone.
+## Where registrations go
 
-## Prices
+1. **Google Form.** Once its details are pasted into `main.js` (steps below), every registration lands in the form's Responses tab.
+2. **WhatsApp, as the fail-safe.** If the form details are still placeholders, or the form cannot be reached, the thank-you screen shows a large WhatsApp button. It opens a message to 07414 962803 with the visitor's name, email, phone and area already typed in. The visitor still has to tap send.
+3. **The phone itself.** Every registration is also saved in that browser. Open https://gesa21.github.io/frommelis/#leads on the same phone to see everything typed on it, copy it, or send the whole list to yourself on WhatsApp. This only shows entries made on that phone.
 
-Every dish has a `price`. If you delete a price (put `null` in its place), the card shows "price on Thursday's menu" instead of a number. `kids_portion_price` near the top is the single price shown for kids portions of adult mains.
+Until step 1 is done, a registration only reaches you if the visitor taps the WhatsApp button, or if it was typed on your own phone.
 
-## Stripe links
+## Connect the Google Form
 
-Each box in `menu.json` has a `stripe_url` that currently says `STRIPE_LINK_HERE`. Create the 2 payment links in Stripe (1 per box), then paste each link over the placeholder text, keeping the quotation marks. Until you do, the order buttons send people to WhatsApp instead, so the site still takes orders either way. In Stripe, add a custom field to each payment link called "Your dish choices" so people can type their picks at checkout.
+1. Go to forms.google.com and start a blank form. Call it "Meli's launch list".
+2. Add 4 questions, all "Short answer", in exactly this order: Full name, Email, Phone, Your area. Turn on "Required" for each one.
+3. Open Settings, then Responses. Set "Collect email addresses" to "Do not collect" and leave "Limit to 1 response" switched off. Both of those make Google ask people to sign in, which stops the page from sending.
+4. Click "Publish" at the top right, and set responders to anyone with the link.
+5. Click the three dots menu at the top right and choose "Get pre-filled link".
+6. Type a word in each box, for example NAME, EMAIL, PHONE and AREA. Click "Get link", then "Copy link".
+7. Paste the link into a note. It will look like this:
+   `https://docs.google.com/forms/d/e/1FAIpQLSabc123/viewform?usp=pp_url&entry.111111111=NAME&entry.222222222=EMAIL&entry.333333333=PHONE&entry.444444444=AREA`
+8. The long code between `/d/e/` and `/viewform` is the form ID. The number after each `entry.` is an entry ID, in the same order as your questions.
+9. On GitHub, open `main.js` and click the pencil icon. Replace the placeholders, keeping the quotation marks:
+   - line 6: `FORM_ID_HERE` becomes the form ID
+   - line 7: `ENTRY_ID_HERE` becomes the Full name number
+   - line 8: `ENTRY_ID_HERE` becomes the Email number
+   - line 9: `ENTRY_ID_HERE` becomes the Phone number
+   - line 10: `ENTRY_ID_HERE` becomes the Your area number
+10. Click "Commit changes" and wait 2 minutes.
+11. Test it on your phone with your own details, then look in the form's Responses tab. If your entry is there, it works. If the thank-you screen still shows the WhatsApp button, one of lines 6 to 10 still has a placeholder or a typo. If there is no WhatsApp button but no response either, an entry number is in the wrong order or belongs to a different form.
 
-## Photos
+## Going live on www.frommelis.co.uk
 
-Save photos into the `photos` folder with these exact names and they appear on the site automatically, no other changes needed:
+There is deliberately no `CNAME` file yet. On 13 September 2026 www.frommelis.co.uk had no DNS records, and as soon as GitHub sees a `CNAME` file it forwards gesa21.github.io/frommelis to the custom domain. With no DNS behind it, that would take the page and the printed QR code offline.
 
-- `photos/hero.webp` for the big dish photo at the top.
-- `photos/olsi.webp` for the story section.
-- Dish photos: save as for example `photos/lasagne.webp`, then put `photos/lasagne.webp` in that dish's `photo` field in `menu.json`.
+When you are ready:
 
-WebP files are smaller and faster. On your laptop, Squoosh (squoosh.app) converts any photo to WebP in the browser for free.
+1. In Cloudflare, on the frommelis.co.uk zone, add the same 2 records as the melicatering site: CNAME `www` to `gesa21.github.io`, and CNAME `frommelis.co.uk` to `gesa21.github.io`.
+2. In this repo, click "Add file", then "Create new file". Name it `CNAME` and type `www.frommelis.co.uk` as its only line. Commit.
+3. After 10 to 30 minutes, go to Settings, then Pages, and tick "Enforce HTTPS".
 
-## Weekly caps
+The printed QR code keeps working throughout, because GitHub forwards gesa21.github.io/frommelis to the new domain.
 
-If you ever want the "slots left" counter back, set `slots_left` and `slots_total` to numbers in `menu.json`, for example 12 and 30. Set both to `null` to hide the counter again.
+## Printed poster and QR code
 
-## Delivery areas
+`melis-a4-poster.pdf` is the A4 poster for the stall. `melis-qr.png` is the QR code on its own. Both point at the address that was checked live when they were made. To remake them for a different address, with Python, Pillow and ReportLab installed:
 
-The list of areas lives in the "Where do you deliver" answer in `index.html`. Edit it there.
+`python tools/make_assets.py print https://gesa21.github.io/frommelis/`
 
-## Going live on frommelis.co.uk
+## The earlier menu site
 
-In Cloudflare, on the frommelis.co.uk zone, add these 2 records, the same way as the melicatering site:
-
-1. Type CNAME, name `www`, target `gesa21.github.io`.
-2. Type CNAME, name `frommelis.co.uk`, target `gesa21.github.io`.
-
-Then in GitHub, in this repo, go to Settings, then Pages, and tick "Enforce HTTPS" once it becomes tickable. The site is also reachable at gesa21.github.io/frommelis while DNS settles.
-
-## Countdown test
-
-To see what the closed state looks like before Saturday, open the site with `?close=2020-01-01T12:00` on the end of the address. To watch the countdown against any date, use `?close=` with that date. The live site always uses the real date from `menu.json`.
+The August menu site, with prices, the menu file and the allergens page, is saved on the `archive-menu-site` branch. Nothing was deleted.
