@@ -207,39 +207,40 @@ def make_print(url):
     c.setFillColorRGB(*rgb(CREAM))
     c.rect(0, 0, W, H, stroke=0, fill=1)
 
-    margin = 22 * mm
+    margin = 18 * mm
     c.setFillColorRGB(*rgb(INK))
-    c.setFont("Playfair-600", 40)
-    c.drawString(margin, H - margin - 30, "Meli’s")
-    c.setFont("Inter-500", 9.5)
-    c.drawRightString(W - margin, H - margin - 22, "T W I C K E N H A M")
+    c.setFont("Playfair-600", 34)
+    c.drawString(margin, H - margin - 26, "Meli’s")
+    c.setFont("Inter-500", 9)
+    c.drawRightString(W - margin, H - margin - 20, "T W I C K E N H A M")
 
-    c.setFont("Playfair-500", 38)
-    y = H - margin - 30 - 72
-    for line in wrap(H1, ImageFont.truetype(font_path("Playfair-500"), 38), W - 2 * margin):
-        c.drawString(margin, y, line)
-        y -= 44
+    c.setFont("Playfair-500", 32)
+    y = H - margin - 26 - 64
+    for line in wrap(H1, ImageFont.truetype(font_path("Playfair-500"), 32), 400):
+        c.drawCentredString(W / 2, y, line)
+        y -= 38
 
-    y -= 12
+    q = 150 * mm
+    qx = (W - q) / 2
+    qy = y + 38 - 14 - q
+    c.drawImage(qr_path, qx, qy, width=q, height=q)
+    print("QR image 150 mm, printed code %.1f mm across" % (150 * n / (n + 2 * quiet)))
+
+    c.setFont("Inter-600", 24)
+    c.drawCentredString(W / 2, qy - 20, "Scan to register your interest")
+
     c.setStrokeColorRGB(*rgb(INK))
     c.setLineWidth(0.6)
-    c.line(margin, y, W - margin, y)
-    c.setFont("Inter-400", 13.5)
+    ry = qy - 46
+    c.line(W / 2 - 30, ry, W / 2 + 30, ry)
+    c.setFont("Inter-400", 13)
+    sy = ry - 24
     for item in SPECIFICS:
-        y -= 26
-        c.circle(margin + 3, y + 4.2, 2.2, stroke=0, fill=1)
-        c.drawString(margin + 16, y, item)
-        y -= 12
-        c.line(margin, y, W - margin, y)
+        c.drawCentredString(W / 2, sy, item)
+        sy -= 22
 
-    q = 92 * mm
-    qx = (W - q) / 2
-    qy = 36 * mm
-    c.drawImage(qr_path, qx, qy, width=q, height=q)
-    c.setFont("Inter-600", 19)
-    c.drawCentredString(W / 2, qy - 10, "Scan to register your interest")
     c.setFont("Playfair-500", 11)
-    c.drawCentredString(W / 2, 14 * mm, "Meli’s. Twickenham.")
+    c.drawCentredString(W / 2, 12 * mm, "Meli’s. Twickenham.")
 
     c.showPage()
     c.save()
